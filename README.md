@@ -5,7 +5,7 @@ Made because I kept getting webp images off google and neither photoshop or blen
 You can select and drop multiple images at once and the app will create png versions of each in the same directory with the suffix \_ImageConverter.
 Button to toggle always on top for convenience.
 
-Also implemented a workaround to be able to drag the app from the very top in fullscreen. While not necessary for this type of app it was just something I noticed and I thought it would be good to fix it. Other Electron and Chromium based apps such as Discord and Steam suffer from this at the time of this writing.
+Also implemented a workaround to be able to drag the app from the very top in fullscreen. While not really a big deal it was just something I noticed and I thought it would be good to fix it. Other Electron and Chromium based apps such as Discord and Steam suffer from this at the time of this writing.
 
 
 
