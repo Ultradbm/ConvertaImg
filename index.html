@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- the following meta tag gets rid of security warning, 
+      the "unsafe-inline" allows use of scripts with the traditional script tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>Image Converter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="titleBar">
+      <div id="titleBarDraggable">
+        <div id="title">
+          Image Converter
+        </div>
+      <div id="titleButtons">
+          <button class="titleButton", onClick="toggleAlwaysOnTop()">
+              <svg id="pin" xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="0 0 49 90">
+                <defs>
+                  <!-- <style>
+                    .cls-1 {
+                      fill: #fff;
+                      fill-rule: evenodd;
+                    }
+                  </style> -->
+                </defs>
+                <path class="cls-1" d="M1.073,45.574c3.163,10.105,44.617,9.4,47.2-.233,1.18-4.4-6.967-8.044-8.214-15.891-1.4-8.832,6.45-14.641,3.923-20.655C39.58-1.685,8.742-2.42,4.358,7.127,1.8,12.686,10.006,18.789,9.036,27.866,8.126,36.383-.427,40.782,1.073,45.574ZM26.165,18.58c-6.917.583-12.424-3.541-13.188-2.463-1.044,1.473,5.887,11.572,13.551,10.264,5.895-1.005,9.831-8.345,8.646-9.759C34.361,15.651,30.169,18.242,26.165,18.58Z"/>
+                <path class="cls-1" d="M24.659,89.5c-1,0-1.787-15.7-2.95-23.97-1.755-12.478-3.618-19.4-1.77-23.97,2-4.932,7.444-4.932,9.44,0,1.848,4.566-.015,11.492-1.77,23.97C26.447,73.8,25.661,89.5,24.659,89.5Z"/>
+                <path class="cls-1" d="M47.208,45.574c-3.163,10.105-44.617,9.4-47.2-.233-1.18-4.4,6.967-8.044,8.214-15.891C9.625,20.618,1.772,14.809,4.3,8.8,8.7-1.685,39.54-2.42,43.924,7.127c2.553,5.559-5.649,11.662-4.678,20.739C40.156,36.383,48.709,40.782,47.208,45.574ZM22.116,18.58c6.917,0.583,12.424-3.541,13.188-2.463,1.044,1.473-5.887,11.572-13.551,10.264-5.895-1.005-9.83-8.345-8.646-9.759C13.92,15.651,18.112,18.242,22.116,18.58Z"/>
+                <path class="cls-1" d="M23.622,89.5c1,0,1.788-15.7,2.95-23.97,1.755-12.478,3.618-19.4,1.77-23.97-2-4.932-7.444-4.932-9.44,0-1.848,4.566.015,11.492,1.77,23.97C21.835,73.8,22.621,89.5,23.622,89.5Z"/>
+              </svg>
+              </button>
+        <button id="minBtn" class = "titleButton" onClick="minimize()">-</button>
+        <button id="minBtn" class = "titleButton" onClick="maximize()">&#10063</button>
+        <button id="minBtn" class = "titleButton" onClick="closeWindow()">x</button>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div id="main-content-container">
+      <div id="main-content-spacer"></div>
+
+      <div id="main-content"  ondrop="convertImages(event)">
+
+        <div id="dropzone-logo-container">
+          <div id="dropzone-logo">
+            <svg version="1.1" id="folder" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+              y="0px" viewBox="0 0 595.7 595.7" style="enable-background:new 0 0 595.7 595.7;" xml:space="preserve">
+            <style type="text/css">
+              .st0{fill:none;stroke:#9A92E0;stroke-width:10;}
+              .st1{fill:none;stroke:#9A92E0;stroke-width:5.07;}
+              .st2{fill-rule:evenodd;clip-rule:evenodd;fill:#9A92E0;}
+            </style>
+            <path id="Rounded_Rectangle_1_copy" class="st0" d="M470.9,183.9c-19.3,0-35-15.7-35-35v-101c0-7.7-6.3-14-14-14h-276
+              c-19.3,0-35,15.7-35,35v458c0,19.3,15.7,35,35,35h304c19.3,0,35-15.7,35-35v-329C484.9,190.1,478.6,183.9,470.9,183.9L470.9,183.9z"
+              />
+            <path id="Rounded_Rectangle_1_copy_2" class="st1" d="M205.9,259.9h184c5.5,0,10,4.5,10,10v118c0,5.5-4.5,10-10,10h-184
+              c-5.5,0-10-4.5-10-10v-118C195.9,264.3,200.3,259.9,205.9,259.9z"/>
+            <path id="Shape_1_copy" class="st2" d="M204.8,398l0-2.7l1.9,0c2.8,0,5.4-1.4,6.9-3.8l38.7-61.6l43,39l55-75l31.7,95.9
+              c1.1,3.3,4.2,5.6,7.7,5.6l0,0l0.2,2.7L204.8,398z M380.8,272.9c6.5,0,11.7,5.4,11.5,11.9c-0.2,5.9-5.1,10.8-11,11
+              c-6.6,0.2-11.9-5-11.9-11.5l0,0C369.3,278,374.5,272.9,380.8,272.9z"/>
+            </svg>
+          </div>
+
+          <div id="dropzone-logo-text">
+           Drag Here to Convert
+          </div>
+
+
+        </div>
+
+        <!-- <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div> -->
+
+
+
+    </div>
+
+    </div>
+    
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
